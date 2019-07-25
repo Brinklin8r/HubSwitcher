@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubSwitcher", "HubSwitcher\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubSwitcher.UI", "HubSwitcher.UI\HubSwitcher.UI.csproj", "{CF7890D4-B054-4D29-975F-30E807548727}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HubSwitcher.Data", "HubSwitcher.Data\HubSwitcher.Data.csproj", "{C48C44C9-7EE0-460C-BFB0-38FD174106AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CF7890D4-B054-4D29-975F-30E807548727}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF7890D4-B054-4D29-975F-30E807548727}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF7890D4-B054-4D29-975F-30E807548727}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48C44C9-7EE0-460C-BFB0-38FD174106AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48C44C9-7EE0-460C-BFB0-38FD174106AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48C44C9-7EE0-460C-BFB0-38FD174106AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48C44C9-7EE0-460C-BFB0-38FD174106AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

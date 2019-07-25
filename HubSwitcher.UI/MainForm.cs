@@ -7,16 +7,16 @@ namespace HubSwitcher.UI {
             InitializeComponent();
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e) {
-            lblResults.Text = "Add";
+        private void btnAdd_Click(object sender, EventArgs e) {
+            lblResults.Text = "Add button pressed.";
         }
 
-        private void BtnUpdate_Click(object sender, EventArgs e) {
-            lblResults.Text = "Update";
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            lblResults.Text = "Update button pressed.";
         }
 
-        private void BtnDelete_Click(object sender, EventArgs e) {
-            lblResults.Text = "Delete";
+        private void btnDelete_Click(object sender, EventArgs e) {
+            lblResults.Text = "Delete button pressed.";
         }
     }
 }
