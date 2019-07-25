@@ -81,5 +81,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HubSwitcher.Data\HubSwitcher.Data.csproj">
+      <Project>{c48c44c9-7ee0-460c-bfb0-38fd174106ab}</Project>
+      <Name>HubSwitcher.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
