@@ -36,6 +36,10 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvDB = new System.Windows.Forms.DataGridView();
             this.lblResults = new System.Windows.Forms.Label();
+            this.lblSPort = new System.Windows.Forms.Label();
+            this.tbSPort = new System.Windows.Forms.TextBox();
+            this.lblMPort = new System.Windows.Forms.Label();
+            this.tbMPort = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,13 +72,13 @@
             // 
             this.tbMURL.Location = new System.Drawing.Point(99, 38);
             this.tbMURL.Name = "tbMURL";
-            this.tbMURL.Size = new System.Drawing.Size(314, 20);
+            this.tbMURL.Size = new System.Drawing.Size(172, 20);
             this.tbMURL.TabIndex = 2;
             // 
             // lblSURL
             // 
             this.lblSURL.AutoSize = true;
-            this.lblSURL.Location = new System.Drawing.Point(7, 67);
+            this.lblSURL.Location = new System.Drawing.Point(4, 67);
             this.lblSURL.Name = "lblSURL";
             this.lblSURL.Size = new System.Drawing.Size(89, 13);
             this.lblSURL.TabIndex = 5;
@@ -84,7 +88,7 @@
             // 
             this.tbSURL.Location = new System.Drawing.Point(99, 64);
             this.tbSURL.Name = "tbSURL";
-            this.tbSURL.Size = new System.Drawing.Size(314, 20);
+            this.tbSURL.Size = new System.Drawing.Size(172, 20);
             this.tbSURL.TabIndex = 4;
             // 
             // lblUIN
@@ -100,7 +104,7 @@
             // 
             this.tbUIN.Location = new System.Drawing.Point(99, 90);
             this.tbUIN.Name = "tbUIN";
-            this.tbUIN.Size = new System.Drawing.Size(314, 20);
+            this.tbUIN.Size = new System.Drawing.Size(172, 20);
             this.tbUIN.TabIndex = 6;
             // 
             // btnAdd
@@ -150,11 +154,47 @@
             this.lblResults.Size = new System.Drawing.Size(0, 13);
             this.lblResults.TabIndex = 12;
             // 
+            // lblSPort
+            // 
+            this.lblSPort.AutoSize = true;
+            this.lblSPort.Location = new System.Drawing.Point(277, 67);
+            this.lblSPort.Name = "lblSPort";
+            this.lblSPort.Size = new System.Drawing.Size(32, 13);
+            this.lblSPort.TabIndex = 16;
+            this.lblSPort.Text = "Port: ";
+            // 
+            // tbSPort
+            // 
+            this.tbSPort.Location = new System.Drawing.Point(315, 64);
+            this.tbSPort.Name = "tbSPort";
+            this.tbSPort.Size = new System.Drawing.Size(98, 20);
+            this.tbSPort.TabIndex = 15;
+            // 
+            // lblMPort
+            // 
+            this.lblMPort.AutoSize = true;
+            this.lblMPort.Location = new System.Drawing.Point(277, 41);
+            this.lblMPort.Name = "lblMPort";
+            this.lblMPort.Size = new System.Drawing.Size(32, 13);
+            this.lblMPort.TabIndex = 14;
+            this.lblMPort.Text = "Port: ";
+            // 
+            // tbMPort
+            // 
+            this.tbMPort.Location = new System.Drawing.Point(315, 38);
+            this.tbMPort.Name = "tbMPort";
+            this.tbMPort.Size = new System.Drawing.Size(98, 20);
+            this.tbMPort.TabIndex = 13;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 530);
+            this.Controls.Add(this.lblSPort);
+            this.Controls.Add(this.tbSPort);
+            this.Controls.Add(this.lblMPort);
+            this.Controls.Add(this.tbMPort);
             this.Controls.Add(this.lblResults);
             this.Controls.Add(this.dgvDB);
             this.Controls.Add(this.btnDelete);
@@ -191,6 +231,10 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvDB;
         private System.Windows.Forms.Label lblResults;
+        private System.Windows.Forms.Label lblSPort;
+        private System.Windows.Forms.TextBox tbSPort;
+        private System.Windows.Forms.Label lblMPort;
+        private System.Windows.Forms.TextBox tbMPort;
     }
 }
 

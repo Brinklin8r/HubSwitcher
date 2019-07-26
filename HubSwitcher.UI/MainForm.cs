@@ -26,7 +26,9 @@ namespace HubSwitcher.UI {
         private void DisplayConfig() {
             tbDescription.Text = _adminConfig.GetValue(Config.ConfigFields.Description);
             tbMURL.Text        = _adminConfig.GetValue(Config.ConfigFields.ManagerURL);
+            tbMPort.Text       = _adminConfig.GetValue(Config.ConfigFields.ManagerPort);
             tbSURL.Text        = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerURL);
+            tbSPort.Text       = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerPort);
             tbUIN.Text         = _adminConfig.GetValue(Config.ConfigFields.UIN);
         }
     }
