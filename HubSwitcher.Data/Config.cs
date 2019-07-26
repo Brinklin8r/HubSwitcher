@@ -30,21 +30,27 @@ namespace HubSwitcher.Data {
         private void createConfigSettings(Configuration Config) {
             foreach (var _setting in Config.AppSettings.Settings.AllKeys) {
                 if (Enum.TryParse(_setting, out ConfigFields validField)) {
+                    // Is it a valid Key?
                     string _tempValue = Config.AppSettings.Settings[_setting].Value.ToString();
                     if (_tempValue.StartsWith("~") && _tempValue.Length > 1) {
+                        // Is the Key Encrypted
                         _tempValue = _encObj.DecryptValue(_tempValue);
                     }
                     if (_tempValue.StartsWith("tcp://") && _tempValue.Length > 6) {
+                        // Is the Key a URL
                         _tempValue = _tempValue.Substring(6, _tempValue.LastIndexOf("/") - 6);
                         _configSettings.Add(
+                            // Save the URL
                             validField,
                             _tempValue.Substring(0, _tempValue.IndexOf(":"))
                         );
                         _configSettings.Add(
+                            // Save the Port, the next ENUM after the URL
                             validField + 1,
                             _tempValue.Substring(_tempValue.IndexOf(":") + 1)
                         );
                     } else {
+                        // If the key was not a URL save the info.
                         _configSettings.Add(
                             validField,
                             _tempValue
