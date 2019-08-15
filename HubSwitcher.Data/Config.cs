@@ -27,6 +27,11 @@ namespace HubSwitcher.Data {
             createConfigSettings(_configFile.GetConfigSettings());
         }
 
+        public void UpdateConfig() {
+            //build update config
+            //_configFile.UpdateConfig();
+        }
+
         private void createConfigSettings(Configuration Config) {
             foreach (var _setting in Config.AppSettings.Settings.AllKeys) {
                 if (Enum.TryParse(_setting, out ConfigFields validField)) {
@@ -68,6 +73,14 @@ namespace HubSwitcher.Data {
                 _value = "ERROR: Unable to find " + KeyName;
             }
             return _value;
+        }
+
+        public void SetValue(ConfigFields KeyName, string Value) {
+            try {
+                _configSettings[KeyName] = Value;
+            } catch (Exception ex) {
+
+            }
         }
 
         public Dictionary<ConfigFields, string> GetSettings() {

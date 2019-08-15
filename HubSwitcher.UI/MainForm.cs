@@ -16,6 +16,16 @@ namespace HubSwitcher.UI {
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
+            //_adminConfig.SetValue(Config.ConfigFields.Description, tbDescription.Text);
+            //_adminConfig.SetValue(Config.ConfigFields.ManagerURL, tbMURL.Text);
+            //_adminConfig.SetValue(Config.ConfigFields.ManagerPort, tbMPort.Text);
+            //_adminConfig.SetValue(Config.ConfigFields.SecondaryManagerURL, tbSURL.Text);
+            //_adminConfig.SetValue(Config.ConfigFields.SecondaryManagerPort, tbSPort.Text);
+            _adminConfig.SetValue(Config.ConfigFields.UIN, tbUIN.Text);
+
+
+
+            _adminConfig.UpdateConfig();
             lblResults.Text = "Update button pressed.";
         }
 
