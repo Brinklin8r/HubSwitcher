@@ -16,14 +16,12 @@ namespace HubSwitcher.UI {
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
-            //_adminConfig.SetValue(Config.ConfigFields.Description, tbDescription.Text);
-            //_adminConfig.SetValue(Config.ConfigFields.ManagerURL, tbMURL.Text);
-            //_adminConfig.SetValue(Config.ConfigFields.ManagerPort, tbMPort.Text);
-            //_adminConfig.SetValue(Config.ConfigFields.SecondaryManagerURL, tbSURL.Text);
-            //_adminConfig.SetValue(Config.ConfigFields.SecondaryManagerPort, tbSPort.Text);
-            _adminConfig.SetValue(Config.ConfigFields.UIN, tbUIN.Text);
-
-
+            _adminConfig.SetValue(Config.ConfigFields.Description,          tbDescription.Text);
+            _adminConfig.SetValue(Config.ConfigFields.ManagerURL,           tbMURL.Text);
+            _adminConfig.SetValue(Config.ConfigFields.ManagerPort,          tbMPort.Text);
+            _adminConfig.SetValue(Config.ConfigFields.SecondaryManagerURL,  tbSURL.Text);
+            _adminConfig.SetValue(Config.ConfigFields.SecondaryManagerPort, tbSPort.Text);
+            _adminConfig.SetValue(Config.ConfigFields.UIN,                  tbUIN.Text);
 
             _adminConfig.UpdateConfig();
             lblResults.Text = "Update button pressed.";
@@ -31,6 +29,13 @@ namespace HubSwitcher.UI {
 
         private void btnDelete_Click(object sender, EventArgs e) {
             lblResults.Text = "Delete button pressed.";
+        }
+
+        private void btn_reload_Click(object sender, EventArgs e) {
+            _adminConfig = new Config();
+            DisplayConfig();
+
+            lblResults.Text = "Config successfully reloaded.";
         }
 
         private void DisplayConfig() {

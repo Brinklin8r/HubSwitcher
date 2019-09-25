@@ -28,8 +28,56 @@ namespace HubSwitcher.Data {
         }
 
         public void UpdateConfig() {
-            //build update config
-            //_configFile.UpdateConfig();
+            // build update config
+            // https://yizeng.me/2013/08/31/update-appsettings-and-custom-configuration-sections-in-appconfig-at-runtime/
+            // < appSettings >
+            //  < add key = "UIN" value = "1" />
+            //  < add key = "ManagerURL" value = "tcp://m.imagepointhosted.com:50669/MerchantCaptureCommObj.rem" />
+            //  < add key = "SecondaryManagerURL" value = "tcp://cat-m2.alogentcloud.com:50669/MerchantCaptureCommObj.rem" />
+            // </ appSettings >
+
+            _configFile.GetConfigSettings().AppSettings.Settings["UIN"].Value =
+                buildString(ConfigFields.UIN);
+            _configFile.GetConfigSettings().AppSettings.Settings["ManagerURL"].Value =
+                buildString(ConfigFields.ManagerURL);
+            _configFile.GetConfigSettings().AppSettings.Settings["SecondaryManagerURL"].Value =
+                buildString(ConfigFields.SecondaryManagerURL);
+
+            _configFile.GetConfigSettings().Save(ConfigurationSaveMode.Modified);
+        }
+
+        private string buildString(ConfigFields key) {
+            StringBuilder _sb = new StringBuilder();
+            StringBuilder _sb2 = new StringBuilder();
+            _sb.Append('~'); // Encrypted string identifier 
+
+            switch (key) {
+                case ConfigFields.ManagerURL:
+                    _sb.Append(_encObj.EncryptValue(_sb2.Append("tcp://")
+                        .Append(GetValue(key))
+                        .Append(":")
+                        .Append(GetValue(ConfigFields.ManagerPort))
+                        .Append("/MerchantCaptureCommObj.rem")
+                        .ToString()
+                    ));
+                break;
+                case ConfigFields.SecondaryManagerURL:
+                    _sb.Append(_encObj.EncryptValue(_sb2.Append("tcp://")
+                        .Append(GetValue(key))
+                        .Append(":")
+                        .Append(GetValue(ConfigFields.SecondaryManagerPort))
+                        .Append("/MerchantCaptureCommObj.rem")
+                        .ToString()
+                    ));
+                break;
+                case ConfigFields.UIN:
+                    _sb.Append(_encObj.EncryptValue(GetValue(key)));
+                break;
+                default:
+                    int STOP = 1;
+                break;
+            }
+            return _sb.ToString();
         }
 
         private void createConfigSettings(Configuration Config) {

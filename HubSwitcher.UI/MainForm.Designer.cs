@@ -40,6 +40,7 @@
             this.tbSPort = new System.Windows.Forms.TextBox();
             this.lblMPort = new System.Windows.Forms.Label();
             this.tbMPort = new System.Windows.Forms.TextBox();
+            this.btn_reload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,11 +187,22 @@
             this.tbMPort.Size = new System.Drawing.Size(98, 20);
             this.tbMPort.TabIndex = 13;
             // 
+            // btn_reload
+            // 
+            this.btn_reload.Location = new System.Drawing.Point(315, 151);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(75, 23);
+            this.btn_reload.TabIndex = 17;
+            this.btn_reload.Text = "Re-load";
+            this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 530);
+            this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.lblSPort);
             this.Controls.Add(this.tbSPort);
             this.Controls.Add(this.lblMPort);
@@ -235,6 +247,7 @@
         private System.Windows.Forms.TextBox tbSPort;
         private System.Windows.Forms.Label lblMPort;
         private System.Windows.Forms.TextBox tbMPort;
+        private System.Windows.Forms.Button btn_reload;
     }
 }
 
