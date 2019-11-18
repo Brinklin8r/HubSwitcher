@@ -5,6 +5,7 @@ using HubSwitcher.Data;
 namespace HubSwitcher.UI {
     public partial class MainForm : Form {
         Config _adminConfig = new Config();
+        DBMaint dbm = new DBMaint();
 
         public MainForm() {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace HubSwitcher.UI {
             tbSURL.Text        = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerURL);
             tbSPort.Text       = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerPort);
             tbUIN.Text         = _adminConfig.GetValue(Config.ConfigFields.UIN);
+
+            dgvDB.DataSource   = dbm.ReadFromDB();
         }
     }
 }
