@@ -8,19 +8,26 @@ using System.Threading.Tasks;
 
 namespace HubSwitcher.Data {
     public class DBMaint {
-
         private readonly SqlConnection _con = new SqlConnection("Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\HubSwitcher.mdf;Integrated Security = True;");
         private SqlCommand _cmd;
         private SqlDataAdapter _adapt;
 
         // Create
-        public void InsertIntoDB(string Name, string State) {
-            string _command = "insert into Connections(Name,State) values(@name,@state)";
+        public void InsertIntoDB(string[] values) {
+            string _command = 
+                "insert into Connections(ConnectionName,ManagerURL,ManagerPort,SecondaryURL,SecondaryPort,UIN)" +
+                " values(@ConnectionName,@ManagerURL,@ManagerPort,@SecondaryURL,@SecondaryPort,@UIN)";
 
             _cmd = new SqlCommand(_command, _con);
             _con.Open();
-            _cmd.Parameters.AddWithValue("@name", Name);
-            _cmd.Parameters.AddWithValue("@state", State);
+
+            _cmd.Parameters.AddWithValue("@ConnectionName", values[0]);
+            _cmd.Parameters.AddWithValue("@ManagerURL", values[1]);
+            _cmd.Parameters.AddWithValue("@ManagerPort", values[2]);
+            _cmd.Parameters.AddWithValue("@SecondaryURL", values[3]);
+            _cmd.Parameters.AddWithValue("@SecondaryPort", values[4]);
+            _cmd.Parameters.AddWithValue("@UIN", values[5]);
+
             _cmd.ExecuteNonQuery();
             _con.Close();
         }
@@ -39,27 +46,36 @@ namespace HubSwitcher.Data {
         }
 
         // Update
-        //public void UpdateDB(int ID, string Name, string State) {
-        //    string _command = "update tbl_Record set Name=@name,State=@state where ID=@id";
+        public void UpdateDB(int ID, string[] values) {
+            string _command = "update Connections set " +
+                "ConnectionName=@ConnectionName,ManagerURL=@ManagerURL," +
+                "ManagerPort=@ManagerPort,SecondaryURL=@SecondaryURL," +
+                "SecondaryPort=@SecondaryPort,UIN=@UIN " +
+                "where ID=@id";
 
-        //    _cmd = new SqlCommand(_command, _con);
-        //    _con.Open();
-        //    _cmd.Parameters.AddWithValue("@id", ID);
-        //    _cmd.Parameters.AddWithValue("@name", Name);
-        //    _cmd.Parameters.AddWithValue("@state", State);
-        //    _cmd.ExecuteNonQuery();
-        //    _con.Close();
-        //}
+            _cmd = new SqlCommand(_command, _con);
+            _con.Open();
+
+            _cmd.Parameters.AddWithValue("@ConnectionName", values[0]);
+            _cmd.Parameters.AddWithValue("@ManagerURL", values[1]);
+            _cmd.Parameters.AddWithValue("@ManagerPort", values[2]);
+            _cmd.Parameters.AddWithValue("@SecondaryURL", values[3]);
+            _cmd.Parameters.AddWithValue("@SecondaryPort", values[4]);
+            _cmd.Parameters.AddWithValue("@UIN", values[5]);
+
+            _cmd.ExecuteNonQuery();
+            _con.Close();
+        }
 
         // Delete
-        //public void DeleteFromDB(int ID) {
-        //    string _command = "delete tbl_Record where ID=@id";
+        public void DeleteFromDB(int ID) {
+            string _command = "delete Connections where ID=@id";
 
-        //    _cmd = new SqlCommand(_command, _con);
-        //    _con.Open();
-        //    _cmd.Parameters.AddWithValue("@id", ID);
-        //    _cmd.ExecuteNonQuery();
-        //    _con.Close();
-        //}
+            _cmd = new SqlCommand(_command, _con);
+            _con.Open();
+            _cmd.Parameters.AddWithValue("@id", ID);
+            _cmd.ExecuteNonQuery();
+            _con.Close();
+        }
     }
 }

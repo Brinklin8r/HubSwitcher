@@ -32,7 +32,7 @@
             this.lblUIN = new System.Windows.Forms.Label();
             this.tbUIN = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvDB = new System.Windows.Forms.DataGridView();
             this.lblResults = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.lblMPort = new System.Windows.Forms.Label();
             this.tbMPort = new System.Windows.Forms.TextBox();
             this.btn_reload = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDB)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,15 +119,15 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnUpdate
+            // btnSaveConfig
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(94, 151);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdate.TabIndex = 9;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnSaveConfig.Location = new System.Drawing.Point(315, 122);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(98, 23);
+            this.btnSaveConfig.TabIndex = 9;
+            this.btnSaveConfig.Text = "Save Config";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
             // 
             // btnDelete
             // 
@@ -191,17 +192,28 @@
             // 
             this.btn_reload.Location = new System.Drawing.Point(315, 151);
             this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(75, 23);
+            this.btn_reload.Size = new System.Drawing.Size(98, 23);
             this.btn_reload.TabIndex = 17;
-            this.btn_reload.Text = "Re-load";
+            this.btn_reload.Text = "Re-load Config";
             this.btn_reload.UseVisualStyleBackColor = true;
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(94, 151);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.TabIndex = 18;
+            this.btnUpdate.Text = "Update DB";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 530);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btn_reload);
             this.Controls.Add(this.lblSPort);
             this.Controls.Add(this.tbSPort);
@@ -210,7 +222,7 @@
             this.Controls.Add(this.lblResults);
             this.Controls.Add(this.dgvDB);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblUIN);
             this.Controls.Add(this.tbUIN);
@@ -239,7 +251,7 @@
         private System.Windows.Forms.Label lblUIN;
         private System.Windows.Forms.TextBox tbUIN;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnSaveConfig;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvDB;
         private System.Windows.Forms.Label lblResults;
@@ -248,6 +260,7 @@
         private System.Windows.Forms.Label lblMPort;
         private System.Windows.Forms.TextBox tbMPort;
         private System.Windows.Forms.Button btn_reload;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 

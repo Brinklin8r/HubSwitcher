@@ -1,35 +1,39 @@
 ﻿using System;
 using System.Windows.Forms;
-using HubSwitcher.Data;
 using HubSwitcher.DTO;
 
 namespace HubSwitcher.UI {
     public partial class MainForm : Form {
         Config _adminConfig = new Config();
-        DBMaint dbm = new DBMaint();
+        DBConnect _dbc = new DBConnect();
 
         public MainForm() {
             InitializeComponent();
-            DisplayConfig();
+            UpdateDisplay();
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
+            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text, tbUIN.Text);
+            _dbc.AddConfig(_adminConfig);
+
+            UpdateDisplay();
+
             lblResults.Text = "Add button pressed.";
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e) {
-            _adminConfig.SetValue(Config.ConfigFields.Description,          tbDescription.Text);
-            _adminConfig.SetValue(Config.ConfigFields.ManagerURL,           tbMURL.Text);
-            _adminConfig.SetValue(Config.ConfigFields.ManagerPort,          tbMPort.Text);
-            _adminConfig.SetValue(Config.ConfigFields.SecondaryManagerURL,  tbSURL.Text);
-            _adminConfig.SetValue(Config.ConfigFields.SecondaryManagerPort, tbSPort.Text);
-            _adminConfig.SetValue(Config.ConfigFields.UIN,                  tbUIN.Text);
+        private void btnSaveConfig_Click(object sender, EventArgs e) {
+            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text, tbUIN.Text);
 
-            _adminConfig.UpdateConfig();
-            lblResults.Text = "Update button pressed.";
+            lblResults.Text = "Save Config button pressed.";
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
+            _dbc.DeleteFromDB(10);
+
+            UpdateDisplay();
+
             lblResults.Text = "Delete button pressed.";
         }
 
@@ -40,6 +44,16 @@ namespace HubSwitcher.UI {
             lblResults.Text = "Config successfully reloaded.";
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text, tbUIN.Text);
+            _dbc.UpdateDB(10, _adminConfig);
+
+            UpdateDisplay();
+
+            lblResults.Text = "Update button pressed.";
+        }
+
         private void DisplayConfig() {
             tbDescription.Text = _adminConfig.GetValue(Config.ConfigFields.Description);
             tbMURL.Text        = _adminConfig.GetValue(Config.ConfigFields.ManagerURL);
@@ -47,8 +61,11 @@ namespace HubSwitcher.UI {
             tbSURL.Text        = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerURL);
             tbSPort.Text       = _adminConfig.GetValue(Config.ConfigFields.SecondaryManagerPort);
             tbUIN.Text         = _adminConfig.GetValue(Config.ConfigFields.UIN);
+        }
 
-            dgvDB.DataSource   = dbm.ReadFromDB();
+        private void UpdateDisplay() {
+            DisplayConfig();
+            dgvDB.DataSource = _dbc.ReadFromDB();
         }
     }
 }

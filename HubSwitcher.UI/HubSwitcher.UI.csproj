@@ -79,10 +79,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HubSwitcher.Data\HubSwitcher.Data.csproj">
-      <Project>{c48c44c9-7ee0-460c-bfb0-38fd174106ab}</Project>
-      <Name>HubSwitcher.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HubSwitcher.DTO\HubSwitcher.DTO.csproj">
       <Project>{aa9d09d1-5807-424a-baea-cdaf1055cc4c}</Project>
       <Name>HubSwitcher.DTO</Name>
