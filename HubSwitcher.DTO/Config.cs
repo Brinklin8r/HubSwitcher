@@ -1,4 +1,5 @@
-﻿using Security;
+﻿using HubSwitcher.Data;
+using Security;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HubSwitcher.Data {
+namespace HubSwitcher.DTO {
     public class Config {
         readonly FSMaint _configFile = new FSMaint(@"C:\Program Files (x86)\Bluepoint Solutions\RDC\IP Admin\IP Admin.exe.config");
         private readonly Encrypt _encObj = new Encrypt();

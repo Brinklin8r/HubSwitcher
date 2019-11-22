@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using HubSwitcher.Data;
+using HubSwitcher.DTO;
 
 namespace HubSwitcher.UI {
     public partial class MainForm : Form {
