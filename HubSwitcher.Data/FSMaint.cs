@@ -27,6 +27,9 @@ namespace HubSwitcher.Data {
                     map,
                     ConfigurationUserLevel.None
                 );
+                if (_config.AppSettings.Settings.Count == 0) {
+                    throw new System.InvalidOperationException("Config file is invalid.  " + Location);
+                }
             } catch (Exception ex) {
                 int Stop = 1;
             }
