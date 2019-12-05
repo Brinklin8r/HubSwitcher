@@ -13,18 +13,30 @@ namespace HubSwitcher.UI {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
-            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
-                tbSURL.Text, tbSPort.Text, tbUIN.Text);
-            _dbc.AddConfig(_adminConfig);
+            _adminConfig.UpdateConfig(
+                tbDescription.Text,
+                tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text,
+                tbUIN.Text);
+            lblResults.Text = "Unable to save connection information to the local database.";
 
-            UpdateDisplay();
-
-            lblResults.Text = "Add button pressed.";
+            if (tbDescription.Text != "Current" && _dbc.DupeCheck(_adminConfig)) {
+                _dbc.AddConfig(_adminConfig);
+                UpdateDisplay();
+                lblResults.Text = "Connection information added to the local database.";
+            } else if (_dbc.DupeCheck(_adminConfig)) {
+                MessageBox.Show("These Conenction settings are already in the local database.");
+            } else { 
+                MessageBox.Show("Please update the description field to save connection settings");
+            } 
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e) {
-            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
-                tbSURL.Text, tbSPort.Text, tbUIN.Text);
+            _adminConfig.UpdateConfig(
+                tbDescription.Text, 
+                tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text, 
+                tbUIN.Text);
 
             lblResults.Text = "Save Config button pressed.";
         }
@@ -45,8 +57,11 @@ namespace HubSwitcher.UI {
         }
 
         private void btnUpdate_Click(object sender, EventArgs e) {
-            _adminConfig.UpdateConfig(tbDescription.Text, tbMURL.Text, tbMPort.Text,
-                tbSURL.Text, tbSPort.Text, tbUIN.Text);
+            _adminConfig.UpdateConfig(
+                tbDescription.Text, 
+                tbMURL.Text, tbMPort.Text,
+                tbSURL.Text, tbSPort.Text, 
+                tbUIN.Text);
             _dbc.UpdateDB(10, _adminConfig);
 
             UpdateDisplay();

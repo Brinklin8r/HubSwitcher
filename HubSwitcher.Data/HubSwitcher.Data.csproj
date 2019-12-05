@@ -69,10 +69,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HubSwitcher.mdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="HubSwitcher_log.ldf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HubSwitcher.mdf</DependentUpon>
     </Content>
   </ItemGroup>

@@ -26,6 +26,10 @@ namespace HubSwitcher.DTO {
             _dbconn.UpdateDB(RowID, createValueString(ConfigurationObject));
         }
 
+        public bool DupeCheck(Config ConfigurationObject) {
+           return _dbconn.DupeCheck(createValueString(ConfigurationObject));
+        }
+
         private string[] createValueString(Config _confObj) {
             string[] _configValues = new string[]{
                 _confObj.GetValue(Config.ConfigFields.Description),
@@ -37,6 +41,5 @@ namespace HubSwitcher.DTO {
             };
             return _configValues;
         }
-
     }
 }
