@@ -49,10 +49,15 @@ namespace HubSwitcher.Data {
             _sqlCommand.Parameters.AddWithValue("@SecondaryPort", values[4]);
             _sqlCommand.Parameters.AddWithValue("@UIN", values[5]);
 
-            int _res = _sqlCommand.ExecuteReader();
+            int _res = Convert.ToInt32(_sqlCommand.ExecuteScalar());
             _sqlConnection.Close();
 
-            return true;
+            if (_res != 0) {
+                return true;
+            } else {
+                return false;
+            }
+            
         }
 
         // Read

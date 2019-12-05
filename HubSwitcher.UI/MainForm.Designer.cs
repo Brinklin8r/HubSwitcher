@@ -40,7 +40,7 @@
             this.tbSPort = new System.Windows.Forms.TextBox();
             this.lblMPort = new System.Windows.Forms.Label();
             this.tbMPort = new System.Windows.Forms.TextBox();
-            this.btn_reload = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDB)).BeginInit();
             this.SuspendLayout();
@@ -188,15 +188,15 @@
             this.tbMPort.Size = new System.Drawing.Size(98, 20);
             this.tbMPort.TabIndex = 13;
             // 
-            // btn_reload
+            // btnReload
             // 
-            this.btn_reload.Location = new System.Drawing.Point(315, 151);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(98, 23);
-            this.btn_reload.TabIndex = 17;
-            this.btn_reload.Text = "Re-load Config";
-            this.btn_reload.UseVisualStyleBackColor = true;
-            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            this.btnReload.Location = new System.Drawing.Point(315, 151);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(98, 23);
+            this.btnReload.TabIndex = 17;
+            this.btnReload.Text = "Re-load Config";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
             // 
             // btnUpdate
             // 
@@ -214,7 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(430, 530);
             this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.btn_reload);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.lblSPort);
             this.Controls.Add(this.tbSPort);
             this.Controls.Add(this.lblMPort);
@@ -259,7 +259,7 @@
         private System.Windows.Forms.TextBox tbSPort;
         private System.Windows.Forms.Label lblMPort;
         private System.Windows.Forms.TextBox tbMPort;
-        private System.Windows.Forms.Button btn_reload;
+        private System.Windows.Forms.Button btnReload;
         private System.Windows.Forms.Button btnUpdate;
     }
 }

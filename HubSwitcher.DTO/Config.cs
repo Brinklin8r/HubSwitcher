@@ -38,8 +38,6 @@ namespace HubSwitcher.DTO {
             SetValue(Config.ConfigFields.SecondaryManagerURL, SecondaryManagerURL);
             SetValue(Config.ConfigFields.SecondaryManagerPort, SecondaryManagerPort);
             SetValue(Config.ConfigFields.UIN, UIN);
-
-            _saveConfig();
         }
 
         public void UpdateConfig(string Description, string ManagerURL,
@@ -51,11 +49,9 @@ namespace HubSwitcher.DTO {
             SetValue(Config.ConfigFields.SecondaryManagerURL, "");
             SetValue(Config.ConfigFields.SecondaryManagerPort, "");
             SetValue(Config.ConfigFields.UIN, UIN);
-
-            _saveConfig();
         }
 
-        private void _saveConfig() { 
+        public void SaveConfig() { 
             // build update config
             // https://yizeng.me/2013/08/31/update-appsettings-and-custom-configuration-sections-in-appconfig-at-runtime/
             // < appSettings >

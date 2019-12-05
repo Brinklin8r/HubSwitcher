@@ -20,15 +20,15 @@ namespace HubSwitcher.UI {
                 tbUIN.Text);
             lblResults.Text = "Unable to save connection information to the local database.";
 
-            if (tbDescription.Text != "Current" && _dbc.DupeCheck(_adminConfig)) {
-                _dbc.AddConfig(_adminConfig);
-                UpdateDisplay();
-                lblResults.Text = "Connection information added to the local database.";
+            if (tbDescription.Text == "Current") {
+                MessageBox.Show("Please update the description field to save connection settings");
             } else if (_dbc.DupeCheck(_adminConfig)) {
                 MessageBox.Show("These Conenction settings are already in the local database.");
-            } else { 
-                MessageBox.Show("Please update the description field to save connection settings");
-            } 
+            } else {
+                _dbc.AddConfig(_adminConfig);
+                UpdateDisplay();
+                lblResults.Text = "Connection information added to the local database.";                
+            }
         }
 
         private void btnSaveConfig_Click(object sender, EventArgs e) {
@@ -37,6 +37,8 @@ namespace HubSwitcher.UI {
                 tbMURL.Text, tbMPort.Text,
                 tbSURL.Text, tbSPort.Text, 
                 tbUIN.Text);
+            
+            _adminConfig.SaveConfig();
 
             lblResults.Text = "Save Config button pressed.";
         }
@@ -49,7 +51,7 @@ namespace HubSwitcher.UI {
             lblResults.Text = "Delete button pressed.";
         }
 
-        private void btn_reload_Click(object sender, EventArgs e) {
+        private void btnReload_Click(object sender, EventArgs e) {
             _adminConfig = new Config();
             DisplayConfig();
 
